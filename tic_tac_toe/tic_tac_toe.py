@@ -58,14 +58,16 @@ def input_move_into_board(board, x, y, input_value):
 def check_winner(board, player_value):
     player = "User" if player_value == "X" else "Computer"
 
-    n = len(board)
-    for i in range(n):
+    board_length = len(board)
 
-        if all(board[i][j] == player_value for j in range(n)) or all(board[j][i] == player_value for j in range(n)):
+    # Check rows and columns
+    for i in range(board_length):
+        if all(board[i][j] == player_value for j in range(board_length)) or all(board[j][i] == player_value for j in range(board_length)):
             display_board(board)
             sys.exit(f'{player} wins!')
 
-    if all(board[i][i] == player_value for i in range(n)) or all(board[i][n - i - 1] == player_value for i in range(n)):
+    # Check diagonals
+    if all(board[i][i] == player_value for i in range(board_length)) or all(board[i][board_length - i - 1] == player_value for i in range(board_length)):
         display_board(board)
         sys.exit(f'{player} wins!')
 
