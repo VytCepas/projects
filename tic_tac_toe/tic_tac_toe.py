@@ -3,7 +3,7 @@ import sys
 
 
 def create_tic_tac_toe_board():
-    return [['' for _ in range(3)] for _ in range(3)]
+    return [['-' for _ in range(3)] for _ in range(3)]
 
 
 def display_board(board):
@@ -12,7 +12,7 @@ def display_board(board):
 
 
 def board_cell_is_empty(board, x, y):
-    if board[x][y] == '':
+    if board[x][y] == '-':
         return True
     return False
 
